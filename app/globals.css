@@ -1,0 +1,44 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;          /* 흰 배경 */
+    --foreground: 160 25% 12%;        /* 짙은 초록빛 먹색(본문 글자) */
+
+    --primary: 152 55% 32%;           /* 시그니처 초록 */
+    --primary-foreground: 0 0% 100%;  /* 초록 위 글자(흰색) */
+
+    --muted: 150 20% 96%;             /* 아주 옅은 초록빛 회색(카드 배경) */
+    --muted-foreground: 160 10% 42%;  /* 보조 텍스트(회색) */
+
+    --border: 150 15% 88%;            /* 옅은 테두리 */
+    --accent: 150 40% 94%;            /* 강조 배경(콜아웃 등) */
+    --warning: 38 90% 50%;            /* 경고 기본색/테두리 (앰버) */
+    --warning-foreground: 35 60% 30%; /* 경고 텍스트 (진한 앰버/갈색) */
+    --warning-muted: 40 60% 96%;      /* 경고 옅은 배경 */
+    --radius: 0.75rem;                /* 모서리 둥글기 */
+  }
+}
+
+@layer components {
+  /* MDX 일반 목록 스타일링 (초록 점 불릿 + 옅은 설명). not-prose 내부에는 적용되지 않도록 방어. */
+  .prose :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply list-none pl-0;
+  }
+  .prose :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) > li {
+    @apply relative pl-5 my-4 text-muted-foreground leading-relaxed;
+  }
+  /* 초록색 커스텀 불릿 */
+  .prose :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) > li::before {
+    content: "";
+    @apply absolute left-1 top-2.5 w-1.5 h-1.5 rounded-full bg-primary;
+  }
+  /* 항목명(strong) 강조 및 줄바꿈 처리 */
+  .prose :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) > li > strong {
+    @apply block text-foreground font-semibold mb-0.5;
+  }
+}

@@ -1,0 +1,72 @@
+---
+title: "UI 컴포넌트(Components) 종합 데모"
+titleEn: "UI Components Demo"
+slug: "components-demo"
+category: "care_guide"
+species: ["dog", "cat"]
+summary: "Carebridge에서 사용하는 다양한 커스텀 UI 컴포넌트들의 디자인과 사용 예시를 모아둔 데모 페이지입니다."
+sources: ["Carebridge Design System Guidelines"]
+updated: "2026-06-01"
+reviewedBy: "DVM. Geonwoo Ko"
+nextReview: "2026-12-01"
+guidelineVersion: "v1.0"
+draft: false
+---
+
+이 문서는 Carebridge의 다양한 프리미엄 UI 컴포넌트들이 실제 화면에서 어떻게 렌더링되는지 한눈에 확인할 수 있는 데모 페이지입니다.
+
+---
+
+## 01 — 두 항목 비교 (CompareColumns)
+
+좌우로 두 가지 시나리오를 대조해서 보여줄 때 사용하는 `CompareColumns` 컴포넌트입니다. 권장 사항(긍정)과 주의 사항(부정/중립)을 시각적으로 명확하게 대비시킬 수 있으며, 모바일에서는 자동으로 상하 레이아웃으로 변경됩니다.
+
+<CompareColumns
+  left={{
+    icon: "✅",
+    label: "권장 식단",
+    title: "성장기 퍼피 전용 사료",
+    caption: "충분한 열량과 단백질 밸런스",
+    items: [
+      { term: "조단백 25% 이상", desc: "근육 및 골격 성장에 필요한 핵심 에너지원입니다." },
+      { term: "급여 횟수", desc: "위장이 작으므로 하루 3~4회 나누어 급여하는 것이 좋습니다." },
+      { term: "불린 사료 제공", desc: "이빨이 약한 초기에는 따뜻한 물에 불려 부드럽게 급여하세요." }
+    ]
+  }}
+  right={{
+    icon: "⚠️",
+    label: "주의/피할 것",
+    title: "성견용 사료 및 간식",
+    caption: "소화불량 및 영양 불균형 위험",
+    items: [
+      { term: "성견용 다이어트 사료", desc: "퍼피에게 필요한 필수 영양소와 열량이 현저히 부족합니다." },
+      { term: "육포 등 질긴 간식", desc: "소화기관에 무리를 주거나 통째로 삼킬 경우 식도/장폐색 위험이 큽니다." },
+      { term: "사람 먹는 음식", desc: "나트륨이 많고 강아지에게 치명적인 독성(포도, 마늘 등)이 포함될 수 있습니다." }
+    ]
+  }}
+/>
+
+---
+
+## 02 — 근거 인용 (EvidenceQuote)
+
+수의학 논문이나 글로벌 진료 가이드라인의 학술적 근거를 본문 내에 신뢰감 있게 인용하여 표시해주는 `EvidenceQuote` 컴포넌트입니다.
+
+### 다중 항목 구성 예시
+
+여러 지침을 묶어 하나의 블록으로 깔끔하게 보여줄 때 점선 구분선이 자동으로 적용됩니다.
+
+<EvidenceQuote
+  items={[
+    {
+      source: "AAHA Canine Life Stage Guidelines",
+      original: "The veterinary team should evaluate the puppy's environment, lifestyle, and risks to customize a prevention plan.",
+      translation: "수의사는 강아지의 환경, 라이프스타일 및 위험 요소를 종합적으로 평가하여 개별 맞춤형 예방 계획을 수립해야 합니다.",
+    },
+    {
+      source: "WSAVA Vaccination Guidelines 2024",
+      original: "The VGG recommends initial vaccination of puppies against CDV, CAV and CPV at 6 to 8 weeks of age, then every 2 to 4 weeks until 16 weeks of age or older.",
+      translation: "강아지의 디스템퍼(CDV)·아데노바이러스(CAV)·파보바이러스(CPV) 기초 접종은 생후 6~8주에 시작하여, 16주령 또는 그 이후까지 2~4주 간격으로 진행하는 것이 권장됩니다.",
+    },
+  ]}
+/>
