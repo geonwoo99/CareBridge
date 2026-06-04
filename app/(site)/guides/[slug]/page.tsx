@@ -39,11 +39,11 @@ export default async function GuidePage({
           species: veliteGuide.species,
           sources: veliteGuide.sources,
           body: null, // 본문은 어차피 veliteGuide.body를 사용함
-        }
+        } as any
       },
       variables: { relativePath: `${slug}.mdx` },
       query: ""
-    };
+    } as any;
   }
 
   return (
