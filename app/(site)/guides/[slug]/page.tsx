@@ -27,9 +27,23 @@ export default async function GuidePage({
     // TinaCMS의 데이터 페칭 (client.queries.guide)
     tinaRes = await client.queries.guide({ relativePath: `${slug}.mdx` });
   } catch (error) {
-    // Tina 데이터를 찾을 수 없을 때 폴백
-    console.error("TinaCMS Fetch Error:", error);
-    notFound();
+    // 로컬 Tina 서버가 꺼져있거나 Vercel 빌드 중일 때의 폴백 (Fallback)
+    console.error(`TinaCMS Fetch Error for ${slug}:`, (error as Error).message);
+    tinaRes = {
+      data: {
+        guide: {
+          title: veliteGuide.title,
+          titleEn: veliteGuide.titleEn,
+          summary: veliteGuide.summary,
+          slug: veliteGuide.slug,
+          species: veliteGuide.species,
+          sources: veliteGuide.sources,
+          body: null, // 본문은 어차피 veliteGuide.body를 사용함
+        }
+      },
+      variables: { relativePath: `${slug}.mdx` },
+      query: ""
+    };
   }
 
   return (
