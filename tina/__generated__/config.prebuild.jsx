@@ -21,6 +21,12 @@ var config_default = defineConfig({
         label: "Guides",
         path: "content/guides/care-guide",
         format: "mdx",
+        ui: {
+          // 이 설정이 있어야 TinaCMS가 iframe 미리보기를 띄우고 좌우 분할 모드(Visual Editing)로 진입합니다.
+          router: ({ document }) => {
+            return `/guides/${document._sys.filename}`;
+          }
+        },
         fields: [
           { type: "string", name: "title", label: "Title", isTitle: true, required: true },
           { type: "string", name: "titleEn", label: "Title (English)" },
