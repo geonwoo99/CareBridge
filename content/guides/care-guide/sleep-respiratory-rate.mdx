@@ -1,0 +1,115 @@
+---
+title: "집에서 측정하는 수면 중 호흡수(SRR)"
+titleEn: "Sleep Respiratory Rate (SRR) · Heart Patient Guide"
+slug: "sleep-respiratory-rate"
+category: "care_guide"
+species: ["dog", "cat"]
+summary: "심장병 환자의 폐수종 진행을 가장 신속하게 감지할 수 있는 지표인 수면 중 호흡수(SRR) 측정법과 응급 대처 행동을 알아봅니다."
+sources: ["ACVIM Consensus Guidelines for Canine MMVD 2019", "WSAVA Global Guidelines 2024"]
+updated: "2026-05-31"
+reviewedBy: "DVM. Geonwoo Ko"
+nextReview: "2026-11-30"
+guidelineVersion: "ACVIM 2019"
+draft: false
+---
+
+수면 중 호흡수(SRR)는 환자가 깊이 잠든 동안의 1분당 호흡수입니다. 누구나 집에서 간단히 측정할 수 있고, 심인성 폐수종을 가장 민감하게 잡아내는 지표이기 때문에 늦지 않게 치료를 시작할 수 있도록 도와줍니다.
+
+---
+
+## 01 — 먼저 알아두세요
+
+### 수면 중 호흡수 (SRR)
+환자가 깊은 수면 상태일 때 1분 동안의 호흡 횟수입니다. 심인성 폐수종을 가장 민감하게 확인할 수 있는 골든타임 지표로, 가정에서 간단히 측정해 조기 치료의 기회를 만들 수 있습니다.
+
+### 심인성 폐수종 (Cardiogenic Pulmonary Edema)
+좌심방의 압력이 임계점 이상 올라가면서 그 혈압이 폐 모세혈관까지 역으로 전달되어 폐에 체액(fluid)이 새어 나와 차는 응급 상태입니다. 산소 교환이 이루어지지 않아 심각한 호흡 곤란에 빠지고, 적기에 응급 치료가 이루어지지 않으면 사망에 이를 수 있습니다.
+
+---
+
+## 02 — 측정 방법 4단계
+
+수면 중 호흡수는 반드시 **안정된 상태**에서 정확한 요령으로 측정해야 합니다.
+
+<Checklist items={[
+  { label: "편안하게 깊이 잠든 상태일 때만 측정합니다", hint: "아이를 깨우거나 건드리면 안 됩니다." },
+  { label: "먼 곳에서 환자의 가슴을 바라봅니다", hint: "흉곽의 오르내림을 관찰합니다." },
+  { label: "들숨과 날숨(가슴이 오르내림)을 한 번 왕복하면 1회로 계산합니다", hint: "올라갔다 내려오면 1회" },
+  { label: "15초 동안 횟수를 센 후 그 값에 4를 곱해 1분당 호흡수를 계산합니다", hint: "또는 10초 동안 세고 6을 곱해도 됩니다." },
+]} />
+
+<Callout type="tip" title="SRR 계산 공식">
+**15초 동안의 호흡수 × 4 = 1분당 SRR**
+</Callout>
+
+---
+
+## 03 — 지금 바로 측정해 보기
+
+환자가 편안하게 깊이 잠든 상태라면 아래 계산기 도구를 클릭하여 15초(혹은 10초) 동안 호흡이 왕복할 때마다 가슴 모양 아이콘을 탭해 보세요. 1분당 호흡수가 자동으로 환산 및 판정됩니다.
+
+<SRRCalculator />
+
+---
+
+## 04 — 정상 SRR은 몇 회인가요?
+
+일반적으로 강아지와 고양이의 정상적인 수면 중 호흡수(SRR)는 **1분당 30회 미만**입니다. 대개 깊이 잠들었을 때는 10회 후반에서 20회 초반을 유지하는 것이 일반적입니다.
+
+<StatGrid items={[
+  { label: "정상 범위", value: "< 30회", desc: "보통 깊이 잠들었을 때 15~25회 사이를 오르내리는 안전한 상태입니다." },
+  { label: "주의/경고 범위", value: "≥ 30회", desc: "환자가 자고 있음에도 호흡수가 30회를 상회하면 즉각적인 의심이 필요합니다." }
+]} />
+
+---
+
+## 05 — SRR이 30회를 넘는다면
+
+아래 탭에서 현재 환자의 **이뇨제 투약 상태**를 선택하여 알맞은 수의사 대처 행동 지침을 확인하시기 바랍니다.
+
+<OptionAdvisor items={[
+  {
+    label: "이뇨제 미복용",
+    sublabel: "아직 약을 안 먹는 환자",
+    body: (
+      <div>
+        <p className="font-semibold text-primary mb-1">📢 수의사 지침 (이뇨제 미복용 환자)</p>
+        <p className="text-foreground/85">
+          아직 이뇨제를 처방받지 않은 환자의 호흡수가 지속적으로 1분당 30회 이상으로 관찰된다면, 심장병 진행으로 인한 초기 폐수종 가능성이 높습니다.
+        </p>
+        <div className="mt-2 text-xs text-red-700 bg-red-50 p-2 rounded border border-red-100 font-semibold">
+          ⚠️ 호흡수가 30회 미만으로 떨어지지 않고 지속되면 빠르게 동물병원에 연락하여 흉부 X-ray 촬영 등의 정밀 진단 예약을 권장합니다.
+        </div>
+      </div>
+    )
+  },
+  {
+    label: "이뇨제 복용 중",
+    sublabel: "이미 약을 먹고 있는 환자",
+    body: (
+      <div>
+        <p className="font-semibold text-primary mb-1">📢 수의사 지침 (이뇨제 복용 환자)</p>
+        <p className="text-foreground/85">
+          이미 이뇨제를 처방받아 복용 중임에도 호흡수가 30회를 계속해서 초과한다면, 내성 발현 혹은 심장 질환의 악화로 인한 이뇨제 용량 조율이 필요한 상태일 수 있습니다.
+        </p>
+        <div className="mt-2 text-xs text-amber-800 bg-amber-50 p-2 rounded border border-amber-100 font-semibold">
+          💡 비상 이뇨제가 구비되어 있는 경우, 사전에 동물병원에서 처방해주신 비상 용량과 지침에 따라 즉시 투약하신 후 바로 병원에 연락하시기 바랍니다.
+        </div>
+        <p className="mt-2 text-xs text-red-700 font-semibold">
+          ⚠️ 호흡수가 일시적으로 가라앉더라도, 폐부종 진행 여부는 반드시 담당 주치의와 면밀히 상담하여 투약 스케줄을 변경해주셔야 합니다.
+        </p>
+      </div>
+    )
+  }
+]} />
+
+---
+
+## 06 — 추천 무료 애플리케이션
+
+매일 호흡수를 측정하여 정밀하게 달력 및 그래프로 누적 기록할 수 있는 무료 앱을 추천해 드립니다. 아래 다운로드 링크를 통해 쉽게 모바일 기기에 설치하여 내원 시 수의사에게 보여주시면 진료에 매우 큰 도움이 됩니다.
+
+<Callout type="info" title="추천 앱: My Pet's Heart2Heart">
+- **App Store (iOS)**: [다운로드 링크](https://apps.apple.com/app/my-pets-heart2heart/id1527788880)
+- **Google Play (Android)**: [다운로드 링크](https://play.google.com/store/apps/details?id=com.idexx.heart2heart)
+</Callout>
