@@ -29,6 +29,11 @@ const config: Config = {
           foreground: "hsl(var(--warning-foreground) / <alpha-value>)",
           muted: "hsl(var(--warning-muted) / <alpha-value>)",
         },
+        danger: {
+          DEFAULT: "hsl(var(--danger) / <alpha-value>)",
+          foreground: "hsl(var(--danger-foreground) / <alpha-value>)",
+          muted: "hsl(var(--danger-muted) / <alpha-value>)",
+        },
       },
       fontFamily: {
         serif: ["var(--font-serif)", "serif"],        // 제목용(명조)

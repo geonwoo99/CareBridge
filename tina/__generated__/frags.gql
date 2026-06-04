@@ -1,0 +1,21 @@
+fragment GuideParts on Guide {
+  __typename
+  title
+  titleEn
+  slug
+  category
+  species
+  summary
+  sources {
+    __typename
+    label
+    href
+  }
+  cover
+  updated
+  reviewedBy
+  nextReview
+  guidelineVersion
+  draft
+  body
+}

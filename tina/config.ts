@@ -1,0 +1,52 @@
+import { defineConfig } from "tinacms";
+
+export default defineConfig({
+  branch: process.env.GITHUB_BRANCH || "main",
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
+  token: process.env.TINA_TOKEN || "",
+  build: {
+    outputFolder: "admin",
+    publicFolder: "public",
+  },
+  media: {
+    tina: {
+      mediaRoot: "media",
+      publicFolder: "public",
+    },
+  },
+  schema: {
+    collections: [
+      {
+        name: "guide",
+        label: "Guides",
+        path: "content/guides/care-guide",
+        format: "mdx",
+        fields: [
+          { type: "string", name: "title", label: "Title", isTitle: true, required: true },
+          { type: "string", name: "titleEn", label: "Title (English)" },
+          { type: "string", name: "slug", label: "Slug", required: true },
+          { type: "string", name: "category", label: "Category", options: ["assessment", "care_guide", "calculator"], required: true },
+          { type: "string", name: "species", label: "Species", list: true, options: ["dog", "cat", "common"] },
+          { type: "string", name: "summary", label: "Summary", ui: { component: "textarea" } },
+          { 
+            type: "object", 
+            name: "sources", 
+            label: "Sources", 
+            list: true, 
+            fields: [
+              { type: "string", name: "label", label: "Label", required: true },
+              { type: "string", name: "href", label: "Link (Optional)" }
+            ] 
+          },
+          { type: "image", name: "cover", label: "Cover Image" },
+          { type: "datetime", name: "updated", label: "Updated Date", ui: { dateFormat: "YYYY-MM-DD" } },
+          { type: "string", name: "reviewedBy", label: "Reviewed By" },
+          { type: "datetime", name: "nextReview", label: "Next Review Date", ui: { dateFormat: "YYYY-MM-DD" } },
+          { type: "string", name: "guidelineVersion", label: "Guideline Version" },
+          { type: "boolean", name: "draft", label: "Draft" },
+          { type: "rich-text", name: "body", label: "Body", isBody: true },
+        ],
+      },
+    ],
+  },
+});

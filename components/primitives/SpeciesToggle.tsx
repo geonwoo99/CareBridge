@@ -8,7 +8,7 @@
 
 import { createContext, useContext, useState } from "react";
 
-export type Species = "dog" | "cat";
+export type Species = "dog" | "cat" | "common";
 
 type SpeciesContextType = {
   species: Species;

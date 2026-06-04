@@ -3,6 +3,7 @@ import { guides } from "#site/content"; // Velite가 자동 생성하는 콘텐�
 import { MDXContent } from "@/components/MDXContent";
 import { Disclaimer } from "@/components/primitives/Disclaimer";
 import { PrintButton } from "@/components/primitives/PrintButton";
+import { SourceNotice } from "@/components/primitives/SourceNotice";
 import { QRCodeSVG } from "qrcode.react";
 import { siteConfig } from "@/lib/site.config";
 import { SpeciesProvider, PageSpeciesToggle } from "@/components/primitives/SpeciesToggle";
@@ -28,10 +29,12 @@ export default async function GuidePage({
       <article className="mx-auto max-w-2xl px-4 py-8">
         {/* 제목 (한/영 병기) */}
         <header className="mb-8">
-          {/* 영문 라벨 — 초록 포인트 */}
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary">
-            {guide.titleEn}
-          </p>
+          {/* 영문 라벨 — 초록 포인트 (있을 때만 표시) */}
+          {guide.titleEn && (
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+              {guide.titleEn}
+            </p>
+          )}
           <h1 className="mt-2 font-serif text-4xl font-bold leading-tight">
             {guide.title}
           </h1>
@@ -40,6 +43,12 @@ export default async function GuidePage({
 
         {/* 상단 통합 종 선택 토글 */}
         <PageSpeciesToggle />
+
+        {/* 상단 출처·면책 안내 — 모든 글에 자동 삽입 */}
+        <SourceNotice
+          sources={guide.sources}
+          notes={[...siteConfig.disclaimerNotes]}
+        />
 
         {/* 본문 (MDX) — 여기서 Figure/Callout/Checklist 등이 렌더링됨 */}
         <div className="prose prose-neutral max-w-none prose-h2:font-serif prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-4 prose-h2:pl-3 prose-h2:border-l-4 prose-h2:border-primary prose-h3:font-serif prose-h3:text-lg prose-h3:font-bold prose-h3:text-primary prose-h3:mt-8 prose-h3:mb-2 prose-p:leading-relaxed prose-p:text-foreground prose-li:leading-relaxed prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-primary prose-strong:font-semibold">
@@ -69,9 +78,11 @@ export default async function GuidePage({
 
         {/* 근거 출처 표시 */}
         <p className="mt-4 text-xs text-muted-foreground border-t pt-4">
-          근거: {guide.sources.join(", ")} · 최종 검수 {guide.updated} ({guide.reviewedBy})
+          {guide.sources.length > 0 && <>근거: {guide.sources.map((s) => s.label).join(", ")} · </>}
+          최종 검수 {guide.updated}{guide.reviewedBy && <> ({guide.reviewedBy})</>}
         </p>
       </article>
     </SpeciesProvider>
   );
 }
+

@@ -16,7 +16,7 @@ const guides = defineCollection({
   schema: s.object({
     // ── 제목 (한/영 병기) ──
     title: s.string(),
-    titleEn: s.string(),
+    titleEn: s.string().optional(),
 
     // ── URL 조각. 한 번 정하면 절대 바꾸지 않음(QR/공유 링크가 깨짐) ──
     slug: s.slug("guides"),
@@ -25,22 +25,27 @@ const guides = defineCollection({
     category: s.enum(["assessment", "care_guide", "calculator"]),
 
     // ── 대상 종 ──
-    species: s.array(s.enum(["dog", "cat"])).default([]),
+    species: s.array(s.enum(["dog", "cat", "common"])).default([]),
 
     // ── 요약(인덱스 카드/검색용). 160자 제한 ──
     summary: s.string().max(160),
 
-    // ── 근거 출처: 최소 1개 필수. 없으면 빌드 실패(의학 안전) ──
-    sources: s.array(s.string()).min(1),
+    // ── 근거 출처: 프로토타입 단계에서는 선택. 정식 발행 전 채울 것 ──
+    sources: s.array(
+      s.object({
+        label: s.string(),
+        href: s.string().optional(),
+      })
+    ).default([]),
 
     // ── 대표 이미지(선택). 자동으로 크기/blur 정보 추출 ──
     cover: s.image().optional(),
 
-    // ── 검수 추적 필드 ──
+    // ── 검수 추적 필드 (프로토타입 단계에서는 선택) ──
     updated: s.isodate(),                // 마지막 수정일
-    reviewedBy: s.string(),              // 검수자(수의사)
-    nextReview: s.isodate(),             // 다음 검토 예정일 (review-check가 사용)
-    guidelineVersion: s.string(),        // 근거 가이드라인 버전 (예: "WSAVA 2024")
+    reviewedBy: s.string().optional(),   // 검수자(수의사)
+    nextReview: s.isodate().optional(),  // 다음 검토 예정일 (review-check가 사용)
+    guidelineVersion: s.string().optional(), // 근거 가이드라인 버전 (예: "WSAVA 2024")
 
     // ── 미발행 여부. true면 배포에서 자동 제외 ──
     draft: s.boolean().default(false),
