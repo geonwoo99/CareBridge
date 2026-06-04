@@ -224,10 +224,120 @@ export type BooleanFilter = {
   exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type RichTextFilter = {
-  startsWith?: InputMaybe<Scalars['String']['input']>;
-  eq?: InputMaybe<Scalars['String']['input']>;
+export type NumberFilter = {
+  lt?: InputMaybe<Scalars['Float']['input']>;
+  lte?: InputMaybe<Scalars['Float']['input']>;
+  gte?: InputMaybe<Scalars['Float']['input']>;
+  gt?: InputMaybe<Scalars['Float']['input']>;
+  eq?: InputMaybe<Scalars['Float']['input']>;
   exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
+};
+
+export type GuideBodyFigureFilter = {
+  src?: InputMaybe<ImageFilter>;
+  alt?: InputMaybe<StringFilter>;
+  size?: InputMaybe<StringFilter>;
+  align?: InputMaybe<StringFilter>;
+  caption?: InputMaybe<StringFilter>;
+  width?: InputMaybe<NumberFilter>;
+  height?: InputMaybe<NumberFilter>;
+};
+
+export type GuideBodyTableOfContentsItemsFilter = {
+  number?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  anchor?: InputMaybe<StringFilter>;
+};
+
+export type GuideBodyTableOfContentsFilter = {
+  title?: InputMaybe<StringFilter>;
+  items?: InputMaybe<GuideBodyTableOfContentsItemsFilter>;
+};
+
+export type GuideBodyStatusListItemsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type GuideBodyStatusListFilter = {
+  type?: InputMaybe<StringFilter>;
+  badgeText?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  items?: InputMaybe<GuideBodyStatusListItemsFilter>;
+};
+
+export type GuideBodySourceNoticeSourcesFilter = {
+  label?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type GuideBodySourceNoticeFilter = {
+  badge?: InputMaybe<StringFilter>;
+  sources?: InputMaybe<GuideBodySourceNoticeSourcesFilter>;
+  notes?: InputMaybe<StringFilter>;
+};
+
+export type GuideBodyCompareColumnsLeftItemsFilter = {
+  term?: InputMaybe<StringFilter>;
+  desc?: InputMaybe<StringFilter>;
+};
+
+export type GuideBodyCompareColumnsLeftFilter = {
+  icon?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  caption?: InputMaybe<StringFilter>;
+  items?: InputMaybe<GuideBodyCompareColumnsLeftItemsFilter>;
+};
+
+export type GuideBodyCompareColumnsRightItemsFilter = {
+  term?: InputMaybe<StringFilter>;
+  desc?: InputMaybe<StringFilter>;
+};
+
+export type GuideBodyCompareColumnsRightFilter = {
+  icon?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  caption?: InputMaybe<StringFilter>;
+  items?: InputMaybe<GuideBodyCompareColumnsRightItemsFilter>;
+};
+
+export type GuideBodyCompareColumnsFilter = {
+  left?: InputMaybe<GuideBodyCompareColumnsLeftFilter>;
+  right?: InputMaybe<GuideBodyCompareColumnsRightFilter>;
+};
+
+export type GuideBodyEvidenceQuoteItemsFilter = {
+  source?: InputMaybe<StringFilter>;
+  original?: InputMaybe<StringFilter>;
+  translation?: InputMaybe<StringFilter>;
+};
+
+export type GuideBodyEvidenceQuoteFilter = {
+  items?: InputMaybe<GuideBodyEvidenceQuoteItemsFilter>;
+};
+
+export type GuideBodyTaggedListItemsFilter = {
+  label?: InputMaybe<StringFilter>;
+  tag?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type GuideBodyTaggedListFilter = {
+  items?: InputMaybe<GuideBodyTaggedListItemsFilter>;
+};
+
+export type GuideBodyFilter = {
+  Figure?: InputMaybe<GuideBodyFigureFilter>;
+  TableOfContents?: InputMaybe<GuideBodyTableOfContentsFilter>;
+  StatusList?: InputMaybe<GuideBodyStatusListFilter>;
+  SourceNotice?: InputMaybe<GuideBodySourceNoticeFilter>;
+  CompareColumns?: InputMaybe<GuideBodyCompareColumnsFilter>;
+  EvidenceQuote?: InputMaybe<GuideBodyEvidenceQuoteFilter>;
+  TaggedList?: InputMaybe<GuideBodyTaggedListFilter>;
 };
 
 export type GuideFilter = {
@@ -244,7 +354,7 @@ export type GuideFilter = {
   nextReview?: InputMaybe<DatetimeFilter>;
   guidelineVersion?: InputMaybe<StringFilter>;
   draft?: InputMaybe<BooleanFilter>;
-  body?: InputMaybe<RichTextFilter>;
+  body?: InputMaybe<GuideBodyFilter>;
 };
 
 export type GuideConnectionEdges = {

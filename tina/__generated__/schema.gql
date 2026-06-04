@@ -144,10 +144,120 @@ input BooleanFilter {
   exists: Boolean
 }
 
-input RichTextFilter {
-  startsWith: String
-  eq: String
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
   exists: Boolean
+  in: [Float]
+}
+
+input GuideBodyFigureFilter {
+  src: ImageFilter
+  alt: StringFilter
+  size: StringFilter
+  align: StringFilter
+  caption: StringFilter
+  width: NumberFilter
+  height: NumberFilter
+}
+
+input GuideBodyTableOfContentsItemsFilter {
+  number: StringFilter
+  title: StringFilter
+  anchor: StringFilter
+}
+
+input GuideBodyTableOfContentsFilter {
+  title: StringFilter
+  items: GuideBodyTableOfContentsItemsFilter
+}
+
+input GuideBodyStatusListItemsFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input GuideBodyStatusListFilter {
+  type: StringFilter
+  badgeText: StringFilter
+  title: StringFilter
+  description: StringFilter
+  items: GuideBodyStatusListItemsFilter
+}
+
+input GuideBodySourceNoticeSourcesFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input GuideBodySourceNoticeFilter {
+  badge: StringFilter
+  sources: GuideBodySourceNoticeSourcesFilter
+  notes: StringFilter
+}
+
+input GuideBodyCompareColumnsLeftItemsFilter {
+  term: StringFilter
+  desc: StringFilter
+}
+
+input GuideBodyCompareColumnsLeftFilter {
+  icon: StringFilter
+  label: StringFilter
+  title: StringFilter
+  caption: StringFilter
+  items: GuideBodyCompareColumnsLeftItemsFilter
+}
+
+input GuideBodyCompareColumnsRightItemsFilter {
+  term: StringFilter
+  desc: StringFilter
+}
+
+input GuideBodyCompareColumnsRightFilter {
+  icon: StringFilter
+  label: StringFilter
+  title: StringFilter
+  caption: StringFilter
+  items: GuideBodyCompareColumnsRightItemsFilter
+}
+
+input GuideBodyCompareColumnsFilter {
+  left: GuideBodyCompareColumnsLeftFilter
+  right: GuideBodyCompareColumnsRightFilter
+}
+
+input GuideBodyEvidenceQuoteItemsFilter {
+  source: StringFilter
+  original: StringFilter
+  translation: StringFilter
+}
+
+input GuideBodyEvidenceQuoteFilter {
+  items: GuideBodyEvidenceQuoteItemsFilter
+}
+
+input GuideBodyTaggedListItemsFilter {
+  label: StringFilter
+  tag: StringFilter
+  href: StringFilter
+}
+
+input GuideBodyTaggedListFilter {
+  items: GuideBodyTaggedListItemsFilter
+}
+
+input GuideBodyFilter {
+  Figure: GuideBodyFigureFilter
+  TableOfContents: GuideBodyTableOfContentsFilter
+  StatusList: GuideBodyStatusListFilter
+  SourceNotice: GuideBodySourceNoticeFilter
+  CompareColumns: GuideBodyCompareColumnsFilter
+  EvidenceQuote: GuideBodyEvidenceQuoteFilter
+  TaggedList: GuideBodyTaggedListFilter
 }
 
 input GuideFilter {
@@ -164,7 +274,7 @@ input GuideFilter {
   nextReview: DatetimeFilter
   guidelineVersion: StringFilter
   draft: BooleanFilter
-  body: RichTextFilter
+  body: GuideBodyFilter
 }
 
 type GuideConnectionEdges {
