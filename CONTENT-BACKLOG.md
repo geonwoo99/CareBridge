@@ -26,6 +26,21 @@
 - [ ] 피부사상균증(곰팡이) 관리 — care_guide
 - [ ] 요로결석 관리 — care_guide
 - [ ] 식이튜브(피딩튜브) 관리 — care_guide
+- [ ] Syncope(실신, 기절) vs Seizure(발작, 경련) — care_guide
+- [ ] 변 상태 체크하기(Fecal score, 흑변·혈변·지방변 등) — care_guide
+- [ ] 요 스틱 활용법(보호자용) — care_guide
+- [ ] 중성화의 득과 실 — care_guide
+- [ ] 체중관리(BCS, 식단 조절 공식, 간식, 호르몬성 체중 변화) — care_guide
+- [ ] 스케일링 안내 — care_guide
+- [ ] 치아흡수성병변 — care_guide
+- [ ] 고양이 턱드름 관리 — care_guide
+- [x] 눈물자국 원인과 관리 — care_guide — *발행 완료*
+- [ ] 보호자와 함께 읽는 MMVD 가이드라인 — care_guide
+- [ ] 심장병에서 이뇨제를 사용하는 이유 — care_guide
+- [ ] 이뇨제를 사용하면 신장이 나빠지나요? — care_guide
+- [ ] 유선종양 안내 — care_guide
+- [ ] 항생제 임의 중단의 위험성 — care_guide
+- [ ] 스테로이드에 대한 이해 — care_guide
 
 ---
 

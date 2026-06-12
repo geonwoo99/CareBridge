@@ -40,8 +40,8 @@
     content: "";
     @apply absolute left-1 top-2.5 w-1.5 h-1.5 rounded-full bg-primary;
   }
-  /* 항목명(strong) 강조 및 줄바꿈 처리 */
-  .prose :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) > li > strong {
+  /* 항목명(strong) 강조 및 줄바꿈 처리 (첫 번째 strong만 줄바꿈 처리하여 본문 중간의 볼드는 inline 유지) */
+  .prose :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) > li > strong:first-child {
     @apply block text-foreground font-semibold mb-0.5;
   }
 }
