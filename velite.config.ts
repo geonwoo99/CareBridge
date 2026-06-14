@@ -9,6 +9,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { defineConfig, defineCollection, s } from "velite";
+import { remarkKoreanStrong } from "./lib/remark-korean-strong";
 
 const guides = defineCollection({
   name: "Guide",
@@ -64,6 +65,7 @@ export default defineConfig({
   root: "content",
   collections: { guides },
   mdx: {
-    // 여기서 rehype/remark 플러그인을 추가할 수 있습니다(추후 확장).
+    // 한글 조사나 특수기호가 붙었을 때 **굵은 글씨**가 무시되는 문제를 전역으로 해결합니다.
+    remarkPlugins: [remarkKoreanStrong],
   },
 });

@@ -44,4 +44,13 @@
   .prose :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) > li > strong:first-child {
     @apply block text-foreground font-semibold mb-0.5;
   }
+
+  /* MDX 일반 링크 스타일링 (노란색 형광펜 효과) */
+  .prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply relative text-foreground font-semibold px-1 rounded transition-colors no-underline;
+    background-color: rgba(250, 204, 21, 0.3); /* 옅은 노란색 */
+  }
+  .prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)):hover {
+    background-color: rgba(250, 204, 21, 0.6); /* 호버 시 진해짐 */
+  }
 }

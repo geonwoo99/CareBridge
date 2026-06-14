@@ -35,6 +35,7 @@
 - [ ] 치아흡수성병변 — care_guide
 - [ ] 고양이 턱드름 관리 — care_guide
 - [x] 눈물자국 원인과 관리 — care_guide — *발행 완료*
+- [~] 가수분해 사료의 과학적 원리와 올바른 급여법 — care_guide — *작성 중 (draft)*
 - [ ] 보호자와 함께 읽는 MMVD 가이드라인 — care_guide
 - [ ] 심장병에서 이뇨제를 사용하는 이유 — care_guide
 - [ ] 이뇨제를 사용하면 신장이 나빠지나요? — care_guide

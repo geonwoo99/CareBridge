@@ -37,8 +37,13 @@ export default function GuideClientPage({
 
   const guide = tinaData.guide;
 
+  // 본문(MDX)에 종별 분기 컴포넌트(SpeciesToggle)가 없으면 내용이 동일한 것으로 간주하여
+  // 상단 종 선택 토글을 노출하지 않도록 supportedSpecies를 비워줍니다.
+  const hasSpeciesSpecificContent = veliteGuide.body.includes("SpeciesToggle");
+  const supportedSpecies = hasSpeciesSpecificContent ? (guide.species as any) : [];
+
   return (
-    <SpeciesProvider supportedSpecies={guide.species as any}>
+    <SpeciesProvider supportedSpecies={supportedSpecies}>
       <article className="mx-auto max-w-2xl px-4 py-8">
         {/* 제목 (한/영 병기) */}
         <header className="mb-8">
