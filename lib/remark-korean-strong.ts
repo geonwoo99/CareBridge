@@ -34,7 +34,7 @@ export const remarkKoreanStrong: Plugin = () => {
       
       if (!regex.test(value)) return;
       
-      const newChildren: Node[] = [];
+      const newChildren: any[] = [];
       let lastIndex = 0;
       regex.lastIndex = 0;
       let match;
@@ -94,7 +94,7 @@ export const remarkKoreanStrong: Plugin = () => {
                 children: innerNodes
               };
 
-              const newNodes: Node[] = [];
+              const newNodes: any[] = [];
               if (startText.length > 0) {
                 newNodes.push({ type: 'text', value: startText });
               }

@@ -15,7 +15,7 @@ export const siteConfig = {
   tagline: "보호자를 위한 반려동물 건강 가이드",
 
   // 사이트 기본 URL (배포 후 실제 도메인으로 교체). QR 코드 생성에 사용됩니다.
-  baseUrl: "https://example.com",
+  baseUrl: "https://care-bridge-nu-seven.vercel.app",
 
   // ── 연락처 ──────────────────────────────────────────────
   // 아직 병원 소속이 아니므로 비워둡니다(null).
