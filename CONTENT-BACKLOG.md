@@ -64,3 +64,13 @@
 ## 💡 추가 아이디어 (Ideas)
 
 - [ ] (자유롭게 떠오르는 주제 추가)
+
+---
+
+## 👨‍⚕️ 수의사 전용 가이드 (Vet Guides)
+
+- [ ] 피하수액(Subcutaneous Fluids) 처치 및 가이드 — protocol
+- [ ] CPCR (심폐소생술) 프로토콜 및 약물 용량 — protocol
+- [ ] 입원 환자 수액(Fluid) 계산법 — calculator
+- [ ] 주요 마취 전 투약(Premedication) 약물 및 용량 — drug_dose
+- [ ] 기본 혈액검사 이상 수치 감별진단(DDx) — differential

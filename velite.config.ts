@@ -61,9 +61,62 @@ const guides = defineCollection({
     })),
 });
 
+const vetGuides = defineCollection({
+  name: "VetGuide",
+  pattern: "vet/**/*.mdx", // content/vet/ 아래 모든 mdx
+  schema: s.object({
+    // ── 제목 (한/영 병기) ──
+    title: s.string(),
+    titleEn: s.string().optional(),
+
+    // ── URL 조각. 한 번 정하면 절대 바꾸지 않음 ──
+    slug: s.slug("vet"),
+
+    // ── 수의사 전용 유형 ──
+    category: s.enum(["protocol", "drug_dose", "calculator", "differential"]),
+
+    // ── 대상 종 ──
+    species: s.array(s.enum(["dog", "cat", "common"])).default([]),
+
+    // ── 요약(인덱스 카드/검색용). 160자 제한 ──
+    summary: s.string().max(160),
+
+    // ── 근거 출처 ──
+    sources: s.array(
+      s.object({
+        label: s.string(),
+        href: s.string().optional(),
+      })
+    ).default([]),
+
+    // ── 대표 이미지(선택) ──
+    cover: s.image().optional(),
+
+    // ── 수의사용 추가 필드 ──
+    difficulty: s.enum(["basic", "advanced"]).optional(),
+    keyTakeaway: s.string().optional(),
+
+    // ── 검수 추적 필드 ──
+    updated: s.isodate(),
+    reviewedBy: s.string().optional(),
+    nextReview: s.isodate().optional(),
+
+    // ── 미발행 여부 ──
+    draft: s.boolean().default(false),
+
+    // ── 본문(MDX) ──
+    body: s.mdx(),
+  })
+    // slug 기반으로 사이트 내 경로를 자동 생성해 붙여줍니다.
+    .transform((data) => ({
+      ...data,
+      url: `/vet/${data.slug}`,
+    })),
+});
+
 export default defineConfig({
   root: "content",
-  collections: { guides },
+  collections: { guides, vetGuides },
   mdx: {
     // 한글 조사나 특수기호가 붙었을 때 **굵은 글씨**가 무시되는 문제를 전역으로 해결합니다.
     remarkPlugins: [remarkKoreanStrong],

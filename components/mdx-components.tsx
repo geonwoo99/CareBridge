@@ -18,6 +18,8 @@ import { CompareColumns } from "./primitives/CompareColumns";
 import { SRRCalculator } from "./interactive/SRRCalculator";
 import { StatusList } from "./primitives/StatusList";
 import { SourceNotice } from "./primitives/SourceNotice";
+import { DosageTable } from "./primitives/DosageTable";
+import { AlgorithmFlow } from "./primitives/AlgorithmFlow";
 
 export const mdxComponents = {
   // 미디어
@@ -25,6 +27,8 @@ export const mdxComponents = {
   // 공통 요소
   Callout, Checklist, SpeciesToggle, Dog, Cat, StatGrid, ExpandableCards, OptionAdvisor,
   TableOfContents, Section, TaggedList, Timeline, EvidenceQuote, CompareColumns, StatusList, SourceNotice,
+  // 수의사 전용 요소
+  DosageTable, AlgorithmFlow,
   // 대화형 요소
   SRRCalculator,
   // Disclaimer는 글에 직접 쓰지 않고 레이아웃이 자동 삽입하므로 등록하지 않음
