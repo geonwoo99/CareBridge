@@ -3,6 +3,7 @@ title: "피하수액(Subcutaneous Fluids) 투여 가이드"
 titleEn: "Subcutaneous Fluid Administration"
 slug: "subq-fluids"
 category: "protocol"
+targetAudience: "vet"
 species: ["dog", "cat"]
 summary: "탈수 교정 및 만성 신부전 관리를 위한 피하수액 요법 가이드라인입니다. 약물 흡수율 및 주의사항을 포함합니다."
 difficulty: "basic"
@@ -11,7 +12,7 @@ updated: "2026-06-15"
 draft: false
 ---
 
-## 📌 주요 인디케이션 (Indications)
+<Section number="1" title="주요 인디케이션 (Indications)" id="indications">
 
 피하수액(SC fluids)은 임상에서 가장 자주 쓰이는 처치 중 하나로, 주로 다음과 같은 상황에 지시됩니다:
 
@@ -19,12 +20,13 @@ draft: false
 2. **만성 신장 질환(CKD)**: 집에서 지속적인 수분 보충이 필요한 유지 요법.
 3. **위장관 질환**: 구토/설사로 인한 수분 손실 방지 (심한 전해질 불균형이 없는 경우).
 
-> [!WARNING]
-> 심각한 탈수(>8%), 쇼크, 저혈량증(Hypovolemia) 환자의 경우 말초 혈관 수축으로 인해 피하 수액의 흡수가 극도로 제한되므로 반드시 **정맥 수액(IV) 투여**를 우선시해야 합니다.
+<Callout type="danger" title="IV 수액 우선 적용 대상">
+심각한 탈수(>8%), 쇼크, 저혈량증(Hypovolemia) 환자의 경우 말초 혈관 수축으로 인해 피하 수액의 흡수가 극도로 제한되므로 반드시 **정맥 수액(IV) 투여**를 우선시해야 합니다.
+</Callout>
 
----
+</Section>
 
-## 📊 권장 투여 용량 및 수액 종류
+<Section number="2" title="권장 투여 용량 및 수액 종류" id="dosage">
 
 등장성 수액(Isotonic crystalloids)이 가장 안전하며, 생리식염수(0.9% NaCl), 하트만 용액(LRS), 플라즈마라이트(Plasma-Lyte 148) 등이 자주 사용됩니다.
 
@@ -46,12 +48,11 @@ draft: false
   ]}
 />
 
----
+</Section>
 
-## 🛠 처치 프로토콜 (Administration Protocol)
+<Section number="3" title="처치 프로토콜 (Administration Protocol)" id="protocol">
 
 <AlgorithmFlow
-  title="피하수액 투여 흐름도"
   steps={[
     {
       step: "1",
@@ -81,10 +82,12 @@ draft: false
   ]}
 />
 
----
+</Section>
 
-## 💡 임상 팁 (Clinical Pearls)
+<Section number="4" title="임상 팁 (Clinical Pearls)" id="tips">
 
 - **흡수 속도**: 피하에 투여된 수액이 완전히 흡수되기까지는 보통 **6 ~ 8시간**이 소요됩니다. 
 - **부종 주의**: 수액이 중력을 따라 가슴이나 앞다리 쪽으로 흘러내려 부종(Edema)처럼 보일 수 있습니다. 이는 정상적인 현상이며 보통 하루 내에 흡수됩니다.
 - **포타슘 첨가 제한**: 수액에 KCl을 첨가할 경우 농도가 **30 mEq/L**를 초과하면 상당한 통증과 조직 자극을 유발하므로 주의해야 합니다.
+
+</Section>

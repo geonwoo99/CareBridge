@@ -19,7 +19,7 @@ export function AlgorithmFlow({ title, steps }: AlgorithmFlowProps) {
         {steps.map((s, idx) => (
           <div key={idx} className="flex items-stretch relative">
             <div className="flex flex-col items-center">
-              <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold border border-blue-200 z-10 mt-1">
+              <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold border border-primary/20 z-10 mt-1">
                 {s.step}
               </div>
               {/* Connector line */}

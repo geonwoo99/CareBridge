@@ -34,7 +34,7 @@ export function DosageTable({ title, rows }: DosageTableProps) {
             {rows.map((row, idx) => (
               <tr key={idx} className="hover:bg-gray-50">
                 <td className="whitespace-nowrap px-4 py-3 font-medium text-gray-900">{row.drug}</td>
-                <td className="whitespace-nowrap px-4 py-3 text-blue-700 font-semibold">{row.dosage}</td>
+                <td className="whitespace-nowrap px-4 py-3 text-primary font-semibold">{row.dosage}</td>
                 <td className="whitespace-nowrap px-4 py-3 text-gray-700 font-mono text-xs">{row.route}</td>
                 <td className="px-4 py-3 text-gray-500">{row.notes}</td>
               </tr>

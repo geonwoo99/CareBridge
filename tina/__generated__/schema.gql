@@ -96,6 +96,7 @@ type Guide implements Node & Document {
   title: String!
   titleEn: String
   slug: String!
+  targetAudience: String
   category: String!
   species: [String]
   summary: String
@@ -105,6 +106,8 @@ type Guide implements Node & Document {
   reviewedBy: String
   nextReview: String
   guidelineVersion: String
+  difficulty: String
+  keyTakeaway: String
   draft: Boolean
   body: JSON
   id: ID!
@@ -172,6 +175,7 @@ input GuideFilter {
   title: StringFilter
   titleEn: StringFilter
   slug: StringFilter
+  targetAudience: StringFilter
   category: StringFilter
   species: StringFilter
   summary: StringFilter
@@ -181,6 +185,8 @@ input GuideFilter {
   reviewedBy: StringFilter
   nextReview: DatetimeFilter
   guidelineVersion: StringFilter
+  difficulty: StringFilter
+  keyTakeaway: StringFilter
   draft: BooleanFilter
   body: GuideBodyFilter
 }
@@ -224,6 +230,7 @@ input GuideMutation {
   title: String
   titleEn: String
   slug: String
+  targetAudience: String
   category: String
   species: [String]
   summary: String
@@ -233,6 +240,8 @@ input GuideMutation {
   reviewedBy: String
   nextReview: String
   guidelineVersion: String
+  difficulty: String
+  keyTakeaway: String
   draft: Boolean
   body: JSON
 }

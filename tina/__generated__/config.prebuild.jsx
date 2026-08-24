@@ -19,7 +19,7 @@ var config_default = defineConfig({
       {
         name: "guide",
         label: "Guides",
-        path: "content/guides/care-guide",
+        path: "content/guides",
         format: "mdx",
         ui: {
           // 이 설정이 있어야 TinaCMS가 iframe 미리보기를 띄우고 좌우 분할 모드(Visual Editing)로 진입합니다.
@@ -31,7 +31,8 @@ var config_default = defineConfig({
           { type: "string", name: "title", label: "Title", isTitle: true, required: true },
           { type: "string", name: "titleEn", label: "Title (English)" },
           { type: "string", name: "slug", label: "Slug", required: true },
-          { type: "string", name: "category", label: "Category", options: ["assessment", "care_guide", "calculator"], required: true },
+          { type: "string", name: "targetAudience", label: "Target Audience", options: ["owner", "vet"] },
+          { type: "string", name: "category", label: "Category", options: ["assessment", "care_guide", "calculator", "protocol", "drug_dose", "differential"], required: true },
           { type: "string", name: "species", label: "Species", list: true, options: ["dog", "cat", "common"] },
           { type: "string", name: "summary", label: "Summary", ui: { component: "textarea" } },
           {
@@ -49,6 +50,8 @@ var config_default = defineConfig({
           { type: "string", name: "reviewedBy", label: "Reviewed By" },
           { type: "datetime", name: "nextReview", label: "Next Review Date", ui: { dateFormat: "YYYY-MM-DD" } },
           { type: "string", name: "guidelineVersion", label: "Guideline Version" },
+          { type: "string", name: "difficulty", label: "Difficulty", options: ["basic", "advanced"] },
+          { type: "string", name: "keyTakeaway", label: "Key Takeaway", ui: { component: "textarea" } },
           { type: "boolean", name: "draft", label: "Draft" },
           {
             type: "rich-text",

@@ -176,6 +176,7 @@ export type Guide = Node & Document & {
   title: Scalars['String']['output'];
   titleEn?: Maybe<Scalars['String']['output']>;
   slug: Scalars['String']['output'];
+  targetAudience?: Maybe<Scalars['String']['output']>;
   category: Scalars['String']['output'];
   species?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   summary?: Maybe<Scalars['String']['output']>;
@@ -185,6 +186,8 @@ export type Guide = Node & Document & {
   reviewedBy?: Maybe<Scalars['String']['output']>;
   nextReview?: Maybe<Scalars['String']['output']>;
   guidelineVersion?: Maybe<Scalars['String']['output']>;
+  difficulty?: Maybe<Scalars['String']['output']>;
+  keyTakeaway?: Maybe<Scalars['String']['output']>;
   draft?: Maybe<Scalars['Boolean']['output']>;
   body?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['ID']['output'];
@@ -252,6 +255,7 @@ export type GuideFilter = {
   title?: InputMaybe<StringFilter>;
   titleEn?: InputMaybe<StringFilter>;
   slug?: InputMaybe<StringFilter>;
+  targetAudience?: InputMaybe<StringFilter>;
   category?: InputMaybe<StringFilter>;
   species?: InputMaybe<StringFilter>;
   summary?: InputMaybe<StringFilter>;
@@ -261,6 +265,8 @@ export type GuideFilter = {
   reviewedBy?: InputMaybe<StringFilter>;
   nextReview?: InputMaybe<DatetimeFilter>;
   guidelineVersion?: InputMaybe<StringFilter>;
+  difficulty?: InputMaybe<StringFilter>;
+  keyTakeaway?: InputMaybe<StringFilter>;
   draft?: InputMaybe<BooleanFilter>;
   body?: InputMaybe<GuideBodyFilter>;
 };
@@ -352,6 +358,7 @@ export type GuideMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   titleEn?: InputMaybe<Scalars['String']['input']>;
   slug?: InputMaybe<Scalars['String']['input']>;
+  targetAudience?: InputMaybe<Scalars['String']['input']>;
   category?: InputMaybe<Scalars['String']['input']>;
   species?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   summary?: InputMaybe<Scalars['String']['input']>;
@@ -361,18 +368,20 @@ export type GuideMutation = {
   reviewedBy?: InputMaybe<Scalars['String']['input']>;
   nextReview?: InputMaybe<Scalars['String']['input']>;
   guidelineVersion?: InputMaybe<Scalars['String']['input']>;
+  difficulty?: InputMaybe<Scalars['String']['input']>;
+  keyTakeaway?: InputMaybe<Scalars['String']['input']>;
   draft?: InputMaybe<Scalars['Boolean']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
-export type GuidePartsFragment = { __typename: 'Guide', title: string, titleEn?: string | null, slug: string, category: string, species?: Array<string | null> | null, summary?: string | null, cover?: string | null, updated?: string | null, reviewedBy?: string | null, nextReview?: string | null, guidelineVersion?: string | null, draft?: boolean | null, body?: any | null, sources?: Array<{ __typename: 'GuideSources', label: string, href?: string | null } | null> | null };
+export type GuidePartsFragment = { __typename: 'Guide', title: string, titleEn?: string | null, slug: string, targetAudience?: string | null, category: string, species?: Array<string | null> | null, summary?: string | null, cover?: string | null, updated?: string | null, reviewedBy?: string | null, nextReview?: string | null, guidelineVersion?: string | null, difficulty?: string | null, keyTakeaway?: string | null, draft?: boolean | null, body?: any | null, sources?: Array<{ __typename: 'GuideSources', label: string, href?: string | null } | null> | null };
 
 export type GuideQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type GuideQuery = { __typename?: 'Query', guide: { __typename: 'Guide', id: string, title: string, titleEn?: string | null, slug: string, category: string, species?: Array<string | null> | null, summary?: string | null, cover?: string | null, updated?: string | null, reviewedBy?: string | null, nextReview?: string | null, guidelineVersion?: string | null, draft?: boolean | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, sources?: Array<{ __typename: 'GuideSources', label: string, href?: string | null } | null> | null } };
+export type GuideQuery = { __typename?: 'Query', guide: { __typename: 'Guide', id: string, title: string, titleEn?: string | null, slug: string, targetAudience?: string | null, category: string, species?: Array<string | null> | null, summary?: string | null, cover?: string | null, updated?: string | null, reviewedBy?: string | null, nextReview?: string | null, guidelineVersion?: string | null, difficulty?: string | null, keyTakeaway?: string | null, draft?: boolean | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, sources?: Array<{ __typename: 'GuideSources', label: string, href?: string | null } | null> | null } };
 
 export type GuideConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -384,7 +393,7 @@ export type GuideConnectionQueryVariables = Exact<{
 }>;
 
 
-export type GuideConnectionQuery = { __typename?: 'Query', guideConnection: { __typename?: 'GuideConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'GuideConnectionEdges', cursor: string, node?: { __typename: 'Guide', id: string, title: string, titleEn?: string | null, slug: string, category: string, species?: Array<string | null> | null, summary?: string | null, cover?: string | null, updated?: string | null, reviewedBy?: string | null, nextReview?: string | null, guidelineVersion?: string | null, draft?: boolean | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, sources?: Array<{ __typename: 'GuideSources', label: string, href?: string | null } | null> | null } | null } | null> | null } };
+export type GuideConnectionQuery = { __typename?: 'Query', guideConnection: { __typename?: 'GuideConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'GuideConnectionEdges', cursor: string, node?: { __typename: 'Guide', id: string, title: string, titleEn?: string | null, slug: string, targetAudience?: string | null, category: string, species?: Array<string | null> | null, summary?: string | null, cover?: string | null, updated?: string | null, reviewedBy?: string | null, nextReview?: string | null, guidelineVersion?: string | null, difficulty?: string | null, keyTakeaway?: string | null, draft?: boolean | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, sources?: Array<{ __typename: 'GuideSources', label: string, href?: string | null } | null> | null } | null } | null> | null } };
 
 export const GuidePartsFragmentDoc = gql`
     fragment GuideParts on Guide {
@@ -392,6 +401,7 @@ export const GuidePartsFragmentDoc = gql`
   title
   titleEn
   slug
+  targetAudience
   category
   species
   summary
@@ -405,6 +415,8 @@ export const GuidePartsFragmentDoc = gql`
   reviewedBy
   nextReview
   guidelineVersion
+  difficulty
+  keyTakeaway
   draft
   body
 }

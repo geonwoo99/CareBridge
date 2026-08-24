@@ -11,6 +11,7 @@ export const GuidePartsFragmentDoc = gql`
   title
   titleEn
   slug
+  targetAudience
   category
   species
   summary
@@ -24,6 +25,8 @@ export const GuidePartsFragmentDoc = gql`
   reviewedBy
   nextReview
   guidelineVersion
+  difficulty
+  keyTakeaway
   draft
   body
 }

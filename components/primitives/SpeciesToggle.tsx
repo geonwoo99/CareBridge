@@ -19,7 +19,7 @@ type SpeciesContextType = {
 
 const SpeciesContext = createContext<SpeciesContextType>({
   species: "dog",
-  setSpecies: () => {},
+  setSpecies: () => { },
   supportedSpecies: ["dog", "cat"],
   hasPageToggle: false,
 });
@@ -74,22 +74,20 @@ export function PageSpeciesToggle() {
           <button
             type="button"
             onClick={() => setSpecies("dog")}
-            className={`flex items-center gap-1.5 rounded-md px-4 py-2 text-sm font-semibold transition active:scale-95 ${
-              species === "dog"
+            className={`flex items-center gap-1.5 rounded-md px-4 py-2 text-sm font-semibold transition active:scale-95 ${species === "dog"
                 ? "bg-primary text-primary-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground"
-            }`}
+              }`}
           >
             <span>🐶</span> 강아지 가이드
           </button>
           <button
             type="button"
             onClick={() => setSpecies("cat")}
-            className={`flex items-center gap-1.5 rounded-md px-4 py-2 text-sm font-semibold transition active:scale-95 ${
-              species === "cat"
+            className={`flex items-center gap-1.5 rounded-md px-4 py-2 text-sm font-semibold transition active:scale-95 ${species === "cat"
                 ? "bg-primary text-primary-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground"
-            }`}
+              }`}
           >
             <span>🐱</span> 고양이 가이드
           </button>

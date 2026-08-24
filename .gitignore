@@ -37,3 +37,8 @@ next-env.d.ts
 
 # Velite generated files
 /.velite/
+
+# Temporary zip files & raw snapshots
+*.zip
+**/_raw/
+

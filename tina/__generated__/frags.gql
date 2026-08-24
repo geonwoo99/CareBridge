@@ -3,6 +3,7 @@ fragment GuideParts on Guide {
   title
   titleEn
   slug
+  targetAudience
   category
   species
   summary
@@ -16,6 +17,8 @@ fragment GuideParts on Guide {
   reviewedBy
   nextReview
   guidelineVersion
+  difficulty
+  keyTakeaway
   draft
   body
 }

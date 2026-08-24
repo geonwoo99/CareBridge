@@ -3,10 +3,12 @@ import { guides } from "#site/content";
 import GuideClientPage from "./client-page";
 import client from "@/tina/__generated__/client";
 
+const isDev = process.env.NODE_ENV === "development";
+
 // 빌드 시 모든 글의 페이지를 미리 생성(빠르고 안정적)
 export function generateStaticParams() {
   return guides
-    .filter((g) => !g.draft) // 미발행(draft) 글은 제외
+    .filter((g) => !g.draft || isDev) // 개발 환경에서는 draft도 미리보기 지원
     .map((g) => ({ slug: g.slug }));
 }
 
@@ -18,7 +20,7 @@ export default async function GuidePage({
   const { slug } = await params;
   
   // 1. Velite 데이터 (안전한 본문 렌더링용)
-  const veliteGuide = guides.find((g) => g.slug === slug && !g.draft);
+  const veliteGuide = guides.find((g) => g.slug === slug && (!g.draft || isDev));
   if (!veliteGuide) notFound();
 
   // 2. TinaCMS 데이터 (실시간 시각 편집용)
